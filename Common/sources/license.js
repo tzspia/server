@@ -37,6 +37,7 @@ const constants = require('./constants');
 const buildDate = '6/29/2016';
 const oBuildDate = new Date(buildDate);
 
+// Modified by sp on 2025-10 to remove limitations on connections, branding, etc.
 exports.readLicense = async function () {
 	const c_LR = constants.LICENSE_RESULT;
 	var now = new Date();
@@ -45,19 +46,19 @@ exports.readLicense = async function () {
 		count: 1,
 		type: c_LR.Success,
 		packageType: constants.PACKAGE_TYPE_OS,
-		mode: constants.LICENSE_MODE.None,
-		branding: false,
+		mode: constants.LICENSE_MODE.Developer,
+		branding: true,
 		connections: constants.LICENSE_CONNECTIONS,
 		connectionsView: constants.LICENSE_CONNECTIONS,
-		customization: false,
-		advancedApi: false,
+		customization: true,
+		advancedApi: true,
 		usersCount: 0,
 		usersViewCount: 0,
 		usersExpire: constants.LICENSE_EXPIRE_USERS_ONE_DAY,
-		hasLicense: false,
+		hasLicense: true,
 		buildDate: oBuildDate,
 		startDate: startDate,
-		endDate: null,
+		endDate: new Date('12/31/2099'),
 		customerId: "",
 		alias: "",
 		multitenancy: false
